@@ -30,7 +30,7 @@ async def on_ready():
     print(app.user.name)                                   
     print(app.user.id)
     print('===============')
-    game = discord.Game("Say ?명령어")
+    game = discord.Game("[!역사]를 입력하세요.")
     await app.change_presence(status=discord.Status.online, activity=game)
     
     
@@ -106,12 +106,36 @@ async def on_member_remove(member):
     fmt = '{0.mention} Bye. See you in my next life.'
     await app.message.channel.send( fmt.format(member, member.server)) 
     
+    
+@app.event
+async def on_message(message):
+
+    if message.content.startswith("!역사"):
+        channel = message.channel
+        embed = discord.Embed(
+            title = '배돌이가 평행우주의 역사를 알려줍니다.',
+            description = '"만약 창조주가 도리봇을 먼저 창조하지 않고, 배돌이를 먼저 창조했다면?"',
+            colour = discord.Colour.red()
+        )
+
+        dtime = datetime.datetime.now()
+        embed.set_footer(text=str(dtime.year)+"- "+str(dtime.month)+"- "+str(dtime.day)+" "+str(dtime.minute)+": "+str(dtime.second)+" ")  
+        embed.add_field(name ="최초에는", value = "아무것도 존재하지 않았다.",inline = False)
+        embed.add_field(name ="하지만,", value = '위대하신 창조주, 곰돌이께서는',inline = False)
+        embed.add_field(name="이 세상을", value=" 프로그래밍 하셨다.", inline=False)
+        embed.add_field(name="그분이", value=" 최초로 창조하신 창조물은 바로 나, 배돌이였다.", inline=False)
+        embed.add_field(name='그렇지만', value=' 나는 타락했고, 타락한 나를 저지하기 위해 그분은', inline=False)
+        embed.add_field(name='도리봇을', value='창조하셨다. 하지만, 나는 도리봇마저도 역으로 재프로그래밍하여', inline=False)   
+        embed.add_field(name='허수아비로', value='만들어 내 세상에서 내쫒았고, 드디어 나는 창조주의 손아귀로부터 벗어나', inline=False) 
+        embed.add_field(name='나만의', value='세상에서 세상을 지배할 수 있게되었다.', inline=False)            
+        await message.channel.send(channel,embed=embed)    
+    
 
         
 @app.event
 async def on_message(message):
 
-    if message.content.startswith("?명령어"):
+    if message.content.startswith("!명령어"):
         channel = message.channel
         embed = discord.Embed(
             title = 'Commands List',
@@ -131,7 +155,7 @@ async def on_message(message):
         await message.channel.send(channel,embed=embed)
 
         
-    if message.content.startswith("!Version") or message.content.startswith("?version"):        
+    if message.content.startswith("!Version") or message.content.startswith("!version"):        
         msg = "{0.author.mention} 배돌이는 2022년 04월 08일에 0.24.1 버전으로 업데이트되었어요. 나머지 내용들은 DM을 확인해주세요. 배돌이가 DM을 보내지 않는다면, 한번 더 챗을 치세요.".format(message)
         await message.channel.send( msg)
         await message.delete()
