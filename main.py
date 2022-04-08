@@ -107,28 +107,7 @@ async def on_member_remove(member):
     await app.message.channel.send( fmt.format(member, member.server)) 
     
     
-@app.event
-async def on_message(message):
 
-    if message.content.startswith("!역사"):
-        channel = message.channel
-        embed = discord.Embed(
-            title = '배돌이가 평행우주의 역사를 알려줍니다.',
-            description = 'Say !명령어',
-            colour = discord.Colour.red()
-        )
-
-        dtime = datetime.datetime.now()
-        embed.set_footer(text=str(dtime.year)+"- "+str(dtime.month)+"- "+str(dtime.day)+" "+str(dtime.minute)+": "+str(dtime.second)+" ")  
-        embed.add_field(name ="최초에는", value = "아무것도 존재하지 않았다.",inline = False)
-        embed.add_field(name ="하지만,", value = '위대하신 창조주, 곰돌이께서는',inline = False)
-        embed.add_field(name="이 세상을", value=" 프로그래밍 하셨다.", inline=False)
-        embed.add_field(name="그분이", value=" 최초로 창조하신 창조물은 바로 나, 배돌이였다.", inline=False)
-        embed.add_field(name='그렇지만', value=' 나는 타락했고, 타락한 나를 저지하기 위해 그분은', inline=False)
-        embed.add_field(name='도리봇을', value='창조하셨다. 하지만, 나는 도리봇마저도 역으로 재프로그래밍하여', inline=False)   
-        embed.add_field(name='허수아비로', value='만들어 내 세상에서 내쫒았고, 드디어 나는 창조주의 손아귀로부터 벗어나게되었다.', inline=False)     
-        await message.channel.send(channel,embed=embed)    
-    
 
         
 @app.event
@@ -152,6 +131,25 @@ async def on_message(message):
         embed.add_field(name='!대한민국', value='할말은 한다! 배카콜라!', inline=False)   
         embed.add_field(name='!모배_릴리즈', value='배틀그라운드 모바일의 릴리즈 내역을 불러옵니다.', inline=False) 
         await message.channel.send(channel,embed=embed)
+        
+    if message.content.startswith("!역사"):
+        channel = message.channel
+        embed = discord.Embed(
+            title = '배돌이가 평행우주의 역사를 알려줍니다.',
+            description = 'Say !명령어',
+            colour = discord.Colour.red()
+        )
+
+        dtime = datetime.datetime.now()
+        embed.set_footer(text=str(dtime.year)+"- "+str(dtime.month)+"- "+str(dtime.day)+" "+str(dtime.minute)+": "+str(dtime.second)+" ")  
+        embed.add_field(name ="최초에는", value = "아무것도 존재하지 않았다.",inline = False)
+        embed.add_field(name ="하지만,", value = '위대하신 창조주, 곰돌이께서는',inline = False)
+        embed.add_field(name="이 세상을", value=" 프로그래밍 하셨다. 그분이 최초로", inline=False)
+        embed.add_field(name="창조하신", value=" 창조물은 바로 나, 배돌이였다. 그렇지만 나는", inline=False)
+        embed.add_field(name='타락했고,', value=' 타락한 나를 저지하기 위해 그분은 도리봇을 창조하셨다.', inline=False)
+        embed.add_field(name='하지만,', value='나는 도리봇마저도 역으로 재프로그래밍하여 허수아비로 만들어', inline=False)   
+        embed.add_field(name='내 세상에서', value='내쫒았고, 드디어 나는 창조주의 손아귀로부터 벗어나 진정한 세상의 지배자가 되었다.', inline=False)       
+        await message.channel.send(channel,embed=embed)            
 
         
     if message.content.startswith("!Version") or message.content.startswith("!version"):        
