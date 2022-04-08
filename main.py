@@ -30,7 +30,7 @@ async def on_ready():
     print(app.user.name)                                   
     print(app.user.id)
     print('===============')
-    game = discord.Game("!역사를 입력하세요.")
+    game = discord.Game("Say !역사")
     await app.change_presence(status=discord.Status.online, activity=game)
     
     
@@ -114,7 +114,7 @@ async def on_message(message):
         channel = message.channel
         embed = discord.Embed(
             title = '배돌이가 평행우주의 역사를 알려줍니다.',
-            description = '',
+            description = 'Say !명령어',
             colour = discord.Colour.red()
         )
 
@@ -144,12 +144,12 @@ async def on_message(message):
 
         dtime = datetime.datetime.now()
         embed.set_footer(text=str(dtime.year)+"- "+str(dtime.month)+"- "+str(dtime.day)+" "+str(dtime.minute)+": "+str(dtime.second)+" ")  
-        embed.add_field(name ="!Version", value = "도리봇의 패치 버전을 확인할수 있습니다.",inline = False)
+        embed.add_field(name ="!Version", value = "배돌이의 패치 버전을 확인할수 있습니다.",inline = False)
         embed.add_field(name ="!오늘의운세", value = '오늘의 운세를 점쳐보세요.',inline = False)
         embed.add_field(name="!오늘의시한편", value=" 지친 하루 시 한편과 함께 마음을 달래보세요. ", inline=False)
-        embed.add_field(name="!오늘의음식", value=" 오늘 먹을 음식을 도리봇이 선택해줍니다.", inline=False)
+        embed.add_field(name="!오늘의음식", value=" 오늘 먹을 음식을 배돌이가 선택해줍니다.", inline=False)
         embed.add_field(name='!MBTI', value=' MBTI에 대한 정보가 궁금하세요?', inline=False)
-        embed.add_field(name='!대한민국', value='할말은 한다! 도카콜라!', inline=False)   
+        embed.add_field(name='!대한민국', value='할말은 한다! 배카콜라!', inline=False)   
         embed.add_field(name='!모배_릴리즈', value='배틀그라운드 모바일의 릴리즈 내역을 불러옵니다.', inline=False) 
         await message.channel.send(channel,embed=embed)
 
