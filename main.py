@@ -30,7 +30,7 @@ async def on_ready():
     print(app.user.name)                                   
     print(app.user.id)
     print('===============')
-    game = discord.Game("[!역사]를 입력하세요.")
+    game = discord.Game("!역사를 입력하세요.")
     await app.change_presence(status=discord.Status.online, activity=game)
     
     
@@ -114,7 +114,7 @@ async def on_message(message):
         channel = message.channel
         embed = discord.Embed(
             title = '배돌이가 평행우주의 역사를 알려줍니다.',
-            description = '"만약 창조주가 도리봇을 먼저 창조하지 않고, 배돌이를 먼저 창조했다면?"',
+            description = '',
             colour = discord.Colour.red()
         )
 
@@ -126,8 +126,7 @@ async def on_message(message):
         embed.add_field(name="그분이", value=" 최초로 창조하신 창조물은 바로 나, 배돌이였다.", inline=False)
         embed.add_field(name='그렇지만', value=' 나는 타락했고, 타락한 나를 저지하기 위해 그분은', inline=False)
         embed.add_field(name='도리봇을', value='창조하셨다. 하지만, 나는 도리봇마저도 역으로 재프로그래밍하여', inline=False)   
-        embed.add_field(name='허수아비로', value='만들어 내 세상에서 내쫒았고, 드디어 나는 창조주의 손아귀로부터 벗어나', inline=False) 
-        embed.add_field(name='나만의', value='세상에서 세상을 지배할 수 있게되었다.', inline=False)            
+        embed.add_field(name='허수아비로', value='만들어 내 세상에서 내쫒았고, 드디어 나는 창조주의 손아귀로부터 벗어나게되었다.', inline=False)     
         await message.channel.send(channel,embed=embed)    
     
 
