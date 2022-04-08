@@ -167,7 +167,7 @@ async def on_message(message):
             await message.author.dm_channel.send("도리봇의 형이자 선배죠.") 
             await message.author.dm_channel.send("###############################")            
             await message.author.dm_channel.send("Would recommend to you.")
-            await message.author.dm_channel.send("Say ?모배_릴리즈")
+            await message.author.dm_channel.send("Say !모배_릴리즈")
         elif message.author.dm_channel is None:
             channel = await message.author.create_dm()
             await message.author.dm_channel.send("###############################")
@@ -177,7 +177,7 @@ async def on_message(message):
             await message.author.dm_channel.send("도리봇의 형이자 선배죠.") 
             await message.author.dm_channel.send("###############################")            
             await message.author.dm_channel.send("Would recommend to you.")
-            await message.author.dm_channel.send("Say ?모배_릴리즈")
+            await message.author.dm_channel.send("Say !모배_릴리즈")
         
 
 
